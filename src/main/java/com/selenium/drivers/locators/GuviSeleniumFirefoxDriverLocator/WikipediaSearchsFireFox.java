@@ -3,43 +3,44 @@ package com.selenium.drivers.locators.GuviSeleniumFirefoxDriverLocator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-public class WikipediaSearchFirefox {
+public class WikipediaSearchsFireFox {
 
     public static void main(String[] args) {
-        // Set the path to GeckoDriver (replace with your actual path)
-        System.setProperty("webdriver.gecko.driver", "E:\\ne guvi java\\firefor drivers\\geckodriver.exe");
+        // Step 1: Set up ChromeDriver path (replace with your local path)
+        System.setProperty("webdriver.chrome.driver", "E:\\ne guvi java\\chrome-win64\\chromedriver.exe");
 
-        // Step 1: Initialize WebDriver for Firefox
-        WebDriver driver = new FirefoxDriver();
+        // Step 2: Initialize Chrome browser
+        WebDriver driver = new ChromeDriver();
 
         try {
-            // Step 2: Maximize the browser window
+            // Step 3: Maximize the browser window
             driver.manage().window().maximize();
 
-            // Step 3: Navigate to Wikipedia homepage
-            String url = "https://www.wikipedia.org/";
-            driver.get(url);
+            // Step 4: Navigate to Wikipedia homepage
+            driver.get("https://www.wikipedia.org/");
 
-            // Step 4: Search for "Artificial Intelligence"
+            // Step 5: Locate the search input box, enter "Artificial Intelligence", and search
             WebElement searchBox = driver.findElement(By.id("searchInput"));
             searchBox.sendKeys("Artificial Intelligence");
+
+            // Locate the search button and click it
             WebElement searchButton = driver.findElement(By.xpath("//button[@type='submit']"));
             searchButton.click();
 
-            // Step 5: Click on the "History" section
-            WebElement historySection = driver.findElement(By.xpath("//h2[@id='History']"));
+            // Step 6: Click on the "History" section in the resulting page
+            WebElement historySection = driver.findElement(By.id("History"));
             historySection.click();
 
-            // Step 6: Print the title of the "History" section
+            // Step 7: Print the title of the section
             String sectionTitle = historySection.getText();
             System.out.println("The title of the section is: " + sectionTitle);
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            // Step 7: Close the browser
+            // Step 8: Close the browser
             driver.quit();
             System.out.println("Browser closed.");
         }

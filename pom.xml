@@ -43,8 +43,8 @@
      <!-- Selenium WebDriver -->
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>4.12.1</version> <!-- Use the latest version -->
+    <artifactId>selenium-java</artifactId>
+    <version>4.5.1</version>
     </dependency>
   </dependencies>
 

@@ -1,26 +1,27 @@
 package com.selenium.drivers.locators.GuviSeleniumFirefoxDriverLocator;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TitleCheck {
 
 	 public static void main(String[] args) {
-	        // Set the path to GeckoDriver (Replace with the correct path to geckodriver)
-	        System.setProperty("webdriver.gecko.driver", "E:\\ne guvi java\\firefor drivers\\geckodriver.exe");
+	        // Step 1: Set up the ChromeDriver path (replace with your local path)
+	        System.setProperty("webdriver.chrome.driver", "E:\\ne guvi java\\chrome-win64\\chromedriver.exe");
 
-	        // Step 1: Initialize WebDriver for Firefox
-	        WebDriver driver = new FirefoxDriver();
+	        // Step 2: Initialize WebDriver for Chrome
+	        WebDriver driver = new ChromeDriver();
+	        
 
 	        try {
-	            // Step 2: Maximize the browser window
+	            // Step 3: Maximize the browser window
 	            driver.manage().window().maximize();
 
-	            // Step 3: Navigate to the website
+	            // Step 4: Navigate to the website
 	            String url = "https://www.demoblaze.com/";
 	            driver.get(url);
 
-	            // Step 4: Get and verify the title of the page
+	            // Step 5: Verify the title of the page
 	            String expectedTitle = "STORE";
 	            String actualTitle = driver.getTitle();
 
@@ -33,7 +34,7 @@ public class TitleCheck {
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        } finally {
-	            // Step 5: Close the browser
+	            // Step 6: Close the browser
 	            driver.quit();
 	            System.out.println("Browser closed.");
 	        }
